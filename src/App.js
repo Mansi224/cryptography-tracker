@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
+import Coin from "./Coin";
 
 function App() {
   const [coins, setCoins] = useState([]);
@@ -38,6 +39,18 @@ function App() {
           />
         </form>
       </div>
+      {filteredCoins.map((coin) => {
+        return (
+          <Coin
+            key={coin.id}
+            name={coin.name}
+            image={coin.image}
+            symbol={coin.symbol}
+            volume={coin.market_cap}
+            price={coin.current_price}
+          />
+        );
+      })}
     </div>
   );
 }
